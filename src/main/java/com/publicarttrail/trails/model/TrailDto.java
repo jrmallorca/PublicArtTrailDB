@@ -1,15 +1,10 @@
-package com.example.trails.entities;
+package com.publicarttrail.trails.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+// Trail DTO (Data Transfer Object)
+// This is what we transfer from the Postman application to be turned into the actual Trail object
+public class TrailDto {
 
-// A table within the database
-@Entity
-public class Trail {
-    @Id // Indicate that this is the primary key of the table
-    @GeneratedValue // Auto-increment in the table (We don't need to provide a table as it's automatically generated for us)
-    private long id; // Primary key
+    private long id;
     private String name;
     private String artworks; // TODO: Change this to List<Artwork> later
 

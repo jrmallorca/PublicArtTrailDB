@@ -1,6 +1,6 @@
-package com.example.trails.repositories;
+package com.publicarttrail.trails.repositories;
 
-import com.example.trails.entities.Trail;
+import com.publicarttrail.trails.entities.Trail;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,8 +1,8 @@
-package com.example.trails.controllers;
+package com.publicarttrail.trails.controllers;
 
-import com.example.trails.entities.Trail;
-import com.example.trails.model.TrailDto;
-import com.example.trails.services.TrailsService;
+import com.publicarttrail.trails.entities.Trail;
+import com.publicarttrail.trails.model.TrailDto;
+import com.publicarttrail.trails.services.TrailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

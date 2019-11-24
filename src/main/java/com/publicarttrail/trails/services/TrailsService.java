@@ -1,8 +1,8 @@
-package com.example.trails.services;
+package com.publicarttrail.trails.services;
 
-import com.example.trails.entities.Trail;
-import com.example.trails.model.TrailDto;
-import com.example.trails.repositories.TrailsRepository;
+import com.publicarttrail.trails.entities.Trail;
+import com.publicarttrail.trails.model.TrailDto;
+import com.publicarttrail.trails.repositories.TrailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

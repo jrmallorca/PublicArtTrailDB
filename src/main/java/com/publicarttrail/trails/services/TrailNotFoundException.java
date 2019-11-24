@@ -1,4 +1,4 @@
-package com.example.trails.services;
+package com.publicarttrail.trails.services;
 
 public class TrailNotFoundException extends RuntimeException {
     public TrailNotFoundException(String message) {
