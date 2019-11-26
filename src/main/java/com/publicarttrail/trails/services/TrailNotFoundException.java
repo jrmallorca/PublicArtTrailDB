@@ -1,7 +1,7 @@
 package com.publicarttrail.trails.services;
 
-public class TrailNotFoundException extends RuntimeException {
-    public TrailNotFoundException(String message) {
-        super(message);
+class TrailNotFoundException extends RuntimeException {
+    TrailNotFoundException(long id) {
+        super("Couldn't find a Trail with id: " + id);
     }
 }
