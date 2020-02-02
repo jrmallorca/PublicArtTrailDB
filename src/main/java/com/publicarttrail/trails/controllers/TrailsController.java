@@ -16,14 +16,13 @@ public class TrailsController {
         this.s = s;
     }
 
-    // Aggregate root
     @GetMapping
     public List<Trail> getTrails() {
         return s.getTrails();
     }
 
     @GetMapping("/{id}")
-    public Trail getById(@PathVariable(required = true) long id) {
+    public Trail getById(@PathVariable long id) {
         return s.getTrailById(id);
     }
 
@@ -38,7 +37,7 @@ public class TrailsController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable(required = true) long id) {
+    public void delete(@PathVariable long id) {
         s.delete(id);
     }
 }

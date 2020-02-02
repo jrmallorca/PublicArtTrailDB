@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// Controller handles the user inputs. The actual logic lies in the Service layer
 @RestController
-@RequestMapping("/artwork")
+@RequestMapping("/artworks")
 public class ArtworksController {
     private final ArtworksService s;
 
@@ -15,29 +16,28 @@ public class ArtworksController {
         this.s = s;
     }
 
-    // Aggregate root
     @GetMapping
     public List<Artwork> getArtworks() {
         return s.getArtworks();
     }
 
     @GetMapping("/{id}")
-    public Artwork getById(@PathVariable(required = true) long id) {
+    public Artwork getById(@PathVariable long id) {
         return s.getArtworkById(id);
     }
 
     @PostMapping
-    public void postArtwork(@RequestBody Artwork t) {
-        s.add(t);
+    public void postArtwork(@RequestBody Artwork a) {
+        s.add(a);
     }
 
     @PutMapping("/{id}")
-    public void replaceArtwork(@RequestBody Artwork t, @PathVariable long id) {
-        s.replace(t, id);
+    public void replaceArtwork(@RequestBody Artwork a, @PathVariable long id) {
+        s.replace(a, id);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable(required = true) long id) {
+    public void delete(@PathVariable long id) {
         s.delete(id);
     }
 }
