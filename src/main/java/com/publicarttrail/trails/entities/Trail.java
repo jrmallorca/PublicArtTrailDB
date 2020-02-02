@@ -14,7 +14,7 @@ public class Trail {
     @Id                                                 // Indicate that this is the primary key of the table
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment in the table (We don't need to provide a table as it's automatically generated for us)
     @Column(name = "id")
-    private long id;     // Primary key
+    private long id;                                    // Primary key
 
     @Column(name = "name")
     private String name;
@@ -26,9 +26,9 @@ public class Trail {
     @Column(name = "longitude")
     private double longitude;
 
-    @JsonManagedReference // https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
-                          // ^^This is needed to stop the infinite recursion when doing a GET request from Postman
-    @OneToMany(mappedBy = "trail", cascade = CascadeType.ALL)
+    @JsonManagedReference                                     // https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
+                                                              // ^^This is needed to stop the infinite recursion when doing a GET request from Postman
+    @OneToMany(mappedBy = "trail", cascade = CascadeType.ALL) // One trail to many artworks, mapped by "trail" attribute in each artwork
     private List<Artwork> artworks;
 
     public Trail() {}

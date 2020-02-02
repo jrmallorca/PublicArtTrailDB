@@ -11,7 +11,7 @@ public class Artwork {
     @Id                                                 // Indicate that this is the primary key of the table
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment in the table (We don't need to provide a table as it's automatically generated for us)
     @Column(name = "id")
-    private long id;     // Primary key
+    private long id;                                    // Primary key
 
     @Column(name = "name")
     private String name;
