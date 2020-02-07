@@ -22,20 +22,20 @@ class LoadArtworks implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        log.info("Preloading artwork: Hollow");
+        log.info("Preloading artwork: Tyndall Gates");
         as.add(new Artwork(
-                "Hollow",
-                "Katie Paterson",
-                "In 2016 a new public artwork called ‘Hollow’, made from tree sample form across the world was installed within Royal Fort Garden. " +
-                        "‘Hollow’ was commissioned to mark the opening of the University’s Life Sciences building in 2016 and is produced by Bristol-based " +
-                        "public art producers, Situations.\n"
+                "Tyndall Gates",
+                "Humphry Repton",
+                "English landscape designer Humphry Repton laid out the main garden in 1800. It is almost impossible to visualize, but in Repton’s " +
+                        "time the driveway swept uninterrupted from this point, down through open parklands to Queens Road. These wrought iron gates and stone " +
+                        "pillars gates (grate 2 listed) stood at that point; but were relocated.\n\n"
                         +
-                        "Created by artist, Katie Paterson, the sample took three years to amass, many of which have been donated by private collectors, " +
-                        "arboretums and botanic gardens across the world. Over 10,000 unique tree species have been gathered spanning millions of years, " +
-                        "representing a miniature forest of all the world’s forests and telling the history of the planet through the immensity of tree " +
-                        "specimens. \n",
-                51.457470,
-                -2.600915,
+                        "This lists status identifies the feature as mid to late 18th century, having large square rusticated piers and spear-headed railings and " +
+                        "attached gates.\n\n"
+                        +
+                        "The main gates are permanently open, but there is an ambition to make them operational again.\n\n",
+                51.458417,
+                -2.603188,
                 ts.getTrailById(1)));
 
         log.info("Preloading artwork: Physics Building");
@@ -53,10 +53,77 @@ class LoadArtworks implements CommandLineRunner {
                 -2.602058,
                 ts.getTrailById(1)));
 
-        log.info("Preloading artwork: Herp");
-        as.add( new Artwork("Derp", "Idk", "Desc", 51.455842, -2.604503, ts.getTrailById(2)));
+        log.info("Preloading artwork: Hollow");
+        as.add(new Artwork(
+                "Hollow",
+                "Katie Paterson",
+                "In 2016 a new public artwork called ‘Hollow’, made from tree sample form across the world was installed within Royal Fort Garden. " +
+                        "‘Hollow’ was commissioned to mark the opening of the University’s Life Sciences building in 2016 and is produced by Bristol-based " +
+                        "public art producers, Situations.\n"
+                        +
+                        "Created by artist, Katie Paterson, the sample took three years to amass, many of which have been donated by private collectors, " +
+                        "arboretums and botanic gardens across the world. Over 10,000 unique tree species have been gathered spanning millions of years, " +
+                        "representing a miniature forest of all the world’s forests and telling the history of the planet through the immensity of tree " +
+                        "specimens. \n",
+                51.457470,
+                -2.600915,
+                ts.getTrailById(1)));
 
-        log.info("Preloading artwork: Derp");
-        as.add( new Artwork("Herp", "sesfef", "sdfsfsaqw", 51.452305, -2.598946, ts.getTrailById(2)));
+        log.info("Preloading artwork: Follow Me");
+        as.add(new Artwork(
+                "Follow Me",
+                "Jeppe Hein",
+                "In 2009 a new public sculpture by internationally acclaimed artist, Jeppe Hein, was unveiled as part of the University’s centenary celebrations. " +
+                        "Entitled “Follow Me’, the work is permanently sited in Royal Fort Gardens. The artwork was produced by Bristol-based public art producers, " +
+                        "Situations.\n\n"
+                        +
+                        "The artwork comprises a square labyrinth of 76 vertical polished steel plates sited at the base of an incline leading down from Royal Fort " +
+                        "House. Visitors are encouraged to enter the labyrinth to experience the effect of the work. Jeppe Hein was inspired by the history of the " +
+                        "gardens-particularly the designs of 18th-century landscape Repton.\n\n",
+                51.457620,
+                -2.602613,
+                ts.getTrailById(1)));
+
+        log.info("Preloading artwork: Lizard");
+        as.add(new Artwork(
+                "Lizard",
+                "Metalgnu",
+                "N/A",
+                51.458830,
+                -2.600851,
+                ts.getTrailById(1)));
+
+        log.info("Preloading artwork: Vertical Garden");
+        as.add(new Artwork(
+                "Vertical Garden",
+                "N/A",
+                "N/A",
+                51.458858,
+                -2.600813,
+                ts.getTrailById(1)));
+
+        log.info("Preloading artwork: Royal Fort House");
+        as.add(new Artwork(
+                "Royal Fort House",
+                "Thomas Tyndall",
+                "Royal fort house was built in 1758-62 on the site of a Civil War fortification for Thomas Tyndall, a wealthy Bristol merchant, and his " +
+                        "young wife Alicia.\n\n"
+                        +
+                        "Its three facades in three different classical styles: Baroque, Palladian and Rococo, were a compromise after three separate architects: " +
+                        "Thomas Paty, John Wallis and James Bridges, had submitted designs. Bridges ultimately pulled the three together with a wooden model that " +
+                        "survives in the house. Thomas Paty's firm actually built the house, creating brilliantly figurative Rococo plaster work and wood carving " +
+                        "for the reception rooms, but it was Alicia who projected the Paty team of craftsmen into this poetic invention.\n\n",
+                51.458318,
+                -2.603357,
+                ts.getTrailById(1)));
+
+        log.info("Preloading artwork: Metal Owl");
+        as.add(new Artwork(
+                "Metal Owl",
+                "Metalgnu",
+                "N/A",
+                51.457987,
+                -2.602257,
+                ts.getTrailById(1)));
     }
 }

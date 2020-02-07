@@ -36,7 +36,7 @@ public class Artwork {
     @JoinColumn(name = "trail_id") // Entity (Artwork) is the owner of the relationship and has a column with a foreign key (trail_id) to the referenced table (Trail)
     private Trail trail;
 
-    Artwork() {}
+    public Artwork() {}
 
     // Custom constructor when an instance is to be created but we don't have an id
     public Artwork(String name, String creator, String description, double latitude, double longitude, Trail trail) {

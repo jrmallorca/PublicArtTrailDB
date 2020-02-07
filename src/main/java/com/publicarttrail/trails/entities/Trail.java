@@ -5,8 +5,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Data   // Creates all getters, setters, etc. for all attributes
 @Entity // Indicate that this is a table
