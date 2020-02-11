@@ -36,7 +36,8 @@ class LoadArtworks implements CommandLineRunner {
                         "The main gates are permanently open, but there is an ambition to make them operational again.\n\n",
                 51.458417,
                 -2.603188,
-                ts.getTrailById(1)));
+                ts.getTrailById(1),
+                as.imgToBytes("error_image.png")));
 
         log.info("Preloading artwork: Physics Building");
         as.add(new Artwork(
@@ -51,7 +52,8 @@ class LoadArtworks implements CommandLineRunner {
                         "as it does not flake like lime”.\n",
                 51.458470,
                 -2.602058,
-                ts.getTrailById(1)));
+                ts.getTrailById(1),
+                as.imgToBytes("physics_building.png")));
 
         log.info("Preloading artwork: Hollow");
         as.add(new Artwork(
@@ -67,7 +69,8 @@ class LoadArtworks implements CommandLineRunner {
                         "specimens. \n",
                 51.457470,
                 -2.600915,
-                ts.getTrailById(1)));
+                ts.getTrailById(1),
+                as.imgToBytes("hollow.png")));
 
         log.info("Preloading artwork: Follow Me");
         as.add(new Artwork(
@@ -82,7 +85,8 @@ class LoadArtworks implements CommandLineRunner {
                         "gardens-particularly the designs of 18th-century landscape Repton.\n\n",
                 51.457620,
                 -2.602613,
-                ts.getTrailById(1)));
+                ts.getTrailById(1),
+                as.imgToBytes("follow_me.png")));
 
         log.info("Preloading artwork: Lizard");
         as.add(new Artwork(
@@ -91,7 +95,8 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.458830,
                 -2.600851,
-                ts.getTrailById(1)));
+                ts.getTrailById(1),
+                as.imgToBytes("lizard.png")));
 
         log.info("Preloading artwork: Vertical Garden");
         as.add(new Artwork(
@@ -100,7 +105,8 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.458858,
                 -2.600813,
-                ts.getTrailById(1)));
+                ts.getTrailById(1),
+                as.imgToBytes("vertical_garden.png")));
 
         log.info("Preloading artwork: Royal Fort House");
         as.add(new Artwork(
@@ -115,7 +121,8 @@ class LoadArtworks implements CommandLineRunner {
                         "for the reception rooms, but it was Alicia who projected the Paty team of craftsmen into this poetic invention.\n\n",
                 51.458318,
                 -2.603357,
-                ts.getTrailById(1)));
+                ts.getTrailById(1),
+                as.imgToBytes("royal_fort_house.png")));
 
         log.info("Preloading artwork: Metal Owl");
         as.add(new Artwork(
@@ -124,6 +131,7 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.457987,
                 -2.602257,
-                ts.getTrailById(1)));
+                ts.getTrailById(1),
+                as.imgToBytes("owl.png")));
     }
 }

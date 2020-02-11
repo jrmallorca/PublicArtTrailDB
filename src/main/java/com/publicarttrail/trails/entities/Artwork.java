@@ -28,7 +28,8 @@ public class Artwork {
     @Column(name = "longitude")
     private double longitude;
 
-    // private Image image; // TODO: Edit later
+    @Column(name = "image")
+    private byte[] image;
 
     @JsonBackReference             // https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
                                    // ^^This is needed to stop the infinite recursion when doing a GET request from Postman
@@ -39,12 +40,13 @@ public class Artwork {
     public Artwork() {}
 
     // Custom constructor when an instance is to be created but we don't have an id
-    public Artwork(String name, String creator, String description, double latitude, double longitude, Trail trail) {
+    public Artwork(String name, String creator, String description, double latitude, double longitude, Trail trail, byte[] image) {
         this.name = name;
         this.creator = creator;
         this.description = description;
         this.latitude = latitude;
         this.longitude = longitude;
         this.trail = trail;
+        this.image = image;
     }
 }
