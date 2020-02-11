@@ -58,8 +58,8 @@ public class ArtworksService {
             });
     }
 
-    public byte[] imgToBytes(String pathname) throws IOException {
-        return Files.readAllBytes(Paths.get(pathname));
+    public byte[] imgToBytes(String filename) throws IOException {
+        return getClass().getResourceAsStream("/images/" + filename).readAllBytes();
     }
 
     // Delete
