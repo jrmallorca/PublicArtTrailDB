@@ -9,6 +9,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,24 +58,8 @@ public class ArtworksService {
             });
     }
 
-    public byte[] imgToBytes(String pathname) {
-        BufferedImage bImage = null;
-        try {
-            bImage = ImageIO.read(new File(pathname));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-
-        try {
-            ImageIO.write(bImage, "png", bos);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        byte[] data = bos.toByteArray();
-        return data;
+    public byte[] imgToBytes(String pathname) throws IOException {
+        return Files.readAllBytes(Paths.get(pathname));
     }
 
     // Delete

@@ -28,6 +28,7 @@ public class Artwork {
     @Column(name = "longitude")
     private double longitude;
 
+    @Lob
     @Column(name = "image")
     private byte[] image;
 
