@@ -39,7 +39,7 @@ class LoadArtworks implements CommandLineRunner {
                 51.458417,
                 -2.603188,
                 ts.getTrailById(1),
-                as.imgToBytes("error_image.png")));
+                as.imgToBase64("error_image.png")));
 
         log.info("Preloading artwork: Physics Building");
         as.add(new Artwork(
@@ -55,7 +55,7 @@ class LoadArtworks implements CommandLineRunner {
                 51.458470,
                 -2.602058,
                 ts.getTrailById(1),
-                as.imgToBytes("physics_building.png")));
+                as.imgToBase64("physics_building.png")));
 
         log.info("Preloading artwork: Hollow");
         as.add(new Artwork(
@@ -72,7 +72,7 @@ class LoadArtworks implements CommandLineRunner {
                 51.457470,
                 -2.600915,
                 ts.getTrailById(1),
-                as.imgToBytes("hollow.png")));
+                as.imgToBase64("hollow.png")));
 
         log.info("Preloading artwork: Follow Me");
         as.add(new Artwork(
@@ -88,7 +88,7 @@ class LoadArtworks implements CommandLineRunner {
                 51.457620,
                 -2.602613,
                 ts.getTrailById(1),
-                as.imgToBytes("follow_me.png")));
+                as.imgToBase64("follow_me.png")));
 
         log.info("Preloading artwork: Lizard");
         as.add(new Artwork(
@@ -98,7 +98,7 @@ class LoadArtworks implements CommandLineRunner {
                 51.458830,
                 -2.600851,
                 ts.getTrailById(1),
-                as.imgToBytes("lizard.png")));
+                as.imgToBase64("lizard.png")));
 
         log.info("Preloading artwork: Vertical Garden");
         as.add(new Artwork(
@@ -108,7 +108,7 @@ class LoadArtworks implements CommandLineRunner {
                 51.458858,
                 -2.600813,
                 ts.getTrailById(1),
-                as.imgToBytes("vertical_garden.png")));
+                as.imgToBase64("vertical_garden.png")));
 
         log.info("Preloading artwork: Royal Fort House");
         as.add(new Artwork(
@@ -124,7 +124,7 @@ class LoadArtworks implements CommandLineRunner {
                 51.458318,
                 -2.603357,
                 ts.getTrailById(1),
-                as.imgToBytes("royal_fort_house.png")));
+                as.imgToBase64("royal_fort_house.png")));
 
         log.info("Preloading artwork: Metal Owl");
         as.add(new Artwork(
@@ -134,6 +134,6 @@ class LoadArtworks implements CommandLineRunner {
                 51.457987,
                 -2.602257,
                 ts.getTrailById(1),
-                as.imgToBytes("owl.png")));
+                as.imgToBase64("owl.png")));
     }
 }

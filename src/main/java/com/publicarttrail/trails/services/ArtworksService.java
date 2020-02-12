@@ -4,13 +4,8 @@ import com.publicarttrail.trails.entities.Artwork;
 import com.publicarttrail.trails.repositories.ArtworksRepository;
 import org.springframework.stereotype.Service;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,8 +53,11 @@ public class ArtworksService {
             });
     }
 
-    public byte[] imgToBytes(String filename) throws IOException {
-        return getClass().getResourceAsStream("/images/" + filename).readAllBytes();
+    public String imgToBase64(String filename) throws IOException {
+        return Base64.getEncoder()
+                     .encodeToString(getClass()
+                                    .getResourceAsStream("/images/" + filename)
+                                    .readAllBytes());
     }
 
     // Delete
