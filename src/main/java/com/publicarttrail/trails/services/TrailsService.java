@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 // Implementations of the repository interface methods
+// TODO: 13/02/2020 Consider adding a getByName() method
 @Service
 public class TrailsService {
     private final TrailsRepository r; // Repository required to call the CRUD operations
@@ -38,8 +39,6 @@ public class TrailsService {
         r.findById(id)
             .map(trail -> {    // Update
                 trail.setName(t.getName());
-                trail.setLatitude(t.getLatitude());
-                trail.setLongitude(t.getLongitude());
                 return r.save(trail);
             })
             .orElseGet(() -> { // Create

@@ -20,6 +20,6 @@ class LoadTrails implements CommandLineRunner {
     @Override
     public void run(String... args) {
         log.info("Preloading trail: Royal Fort Gardens");
-        ts.add(new Trail("Royal Fort Gardens", 51.457738, -2.602782));
+        ts.add(new Trail("Royal Fort Gardens"));
     }
 }
