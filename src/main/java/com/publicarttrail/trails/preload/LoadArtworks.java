@@ -121,8 +121,8 @@ class LoadArtworks implements CommandLineRunner {
                         "Thomas Paty, John Wallis and James Bridges, had submitted designs. Bridges ultimately pulled the three together with a wooden model that " +
                         "survives in the house. Thomas Paty's firm actually built the house, creating brilliantly figurative Rococo plaster work and wood carving " +
                         "for the reception rooms, but it was Alicia who projected the Paty team of craftsmen into this poetic invention.\n\n",
-                51.458318,
-                -2.603357,
+                51.457775,
+                -2.601860,
                 ts.getTrailById(1),
                 as.imgToBase64("royal_fort_house.png")));
 
