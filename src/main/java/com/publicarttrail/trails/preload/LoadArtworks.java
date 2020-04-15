@@ -41,7 +41,7 @@ class LoadArtworks implements CommandLineRunner {
                 -2.603188,
                 new ArrayList<>() {
                     {
-                        add(ts.getTrailById(2));
+                        add(ts.getTrailById(1));
                     }
                 },
                 as.imgToBase64("error_image.png")));
@@ -61,7 +61,7 @@ class LoadArtworks implements CommandLineRunner {
                 -2.602613,
                 new ArrayList<>() {
                     {
-                        add(ts.getTrailById(2));
+                        add(ts.getTrailById(1));
                     }
                 },
                 as.imgToBase64("follow_me.png")));
@@ -82,7 +82,7 @@ class LoadArtworks implements CommandLineRunner {
                 -2.600915,
                 new ArrayList<>() {
                     {
-                        add(ts.getTrailById(2));
+                        add(ts.getTrailById(1));
                     }
                 },
                 as.imgToBase64("hollow.png")));
@@ -118,7 +118,7 @@ class LoadArtworks implements CommandLineRunner {
                 -2.602257,
                 new ArrayList<>() {
                     {
-                        add(ts.getTrailById(2));
+                        add(ts.getTrailById(1));
                     }
                 },
                 as.imgToBase64("owl.png")));
@@ -168,7 +168,7 @@ class LoadArtworks implements CommandLineRunner {
                 -2.600851,
                 new ArrayList<>() {
                     {
-                        add(ts.getTrailById(2));
+                        add(ts.getTrailById(1));
                     }
                 },
                 as.imgToBase64("lizard.png")));
