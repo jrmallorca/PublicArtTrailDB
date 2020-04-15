@@ -9,6 +9,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @Component // Allows Spring to find this file
 @Slf4j     // Creates a logger for us
@@ -38,7 +39,11 @@ class LoadArtworks implements CommandLineRunner {
                         "The main gates are permanently open, but there is an ambition to make them operational again.\n\n",
                 51.458417,
                 -2.603188,
-                ts.getTrailById(1),
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(2));
+                    }
+                },
                 as.imgToBase64("error_image.png")));
 
         log.info("Preloading artwork: Follow Me");
@@ -54,7 +59,11 @@ class LoadArtworks implements CommandLineRunner {
                         "gardens-particularly the designs of 18th-century landscape Repton.\n\n",
                 51.457620,
                 -2.602613,
-                ts.getTrailById(1),
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(2));
+                    }
+                },
                 as.imgToBase64("follow_me.png")));
 
         log.info("Preloading artwork: Hollow");
@@ -71,7 +80,11 @@ class LoadArtworks implements CommandLineRunner {
                         "specimens. \n",
                 51.457470,
                 -2.600915,
-                ts.getTrailById(1),
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(2));
+                    }
+                },
                 as.imgToBase64("hollow.png")));
 
         log.info("Preloading artwork: Royal Fort House");
@@ -87,7 +100,12 @@ class LoadArtworks implements CommandLineRunner {
                         "for the reception rooms, but it was Alicia who projected the Paty team of craftsmen into this poetic invention.\n\n",
                 51.457775,
                 -2.601860,
-                ts.getTrailById(1),
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(1));
+                        add(ts.getTrailById(2));
+                    }
+                },
                 as.imgToBase64("royal_fort_house.png")));
 
 
@@ -98,12 +116,16 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.457987,
                 -2.602257,
-                ts.getTrailById(1),
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(2));
+                    }
+                },
                 as.imgToBase64("owl.png")));
 
-        log.info("Preloading artwork: Physics Building");
+        log.info("Preloading artwork: H H Wills Physics Laboratory");
         as.add(new Artwork(
-                "Physics Building",
+                "H H Wills Physics Laboratory",
                 "George Oatlay",
                 "This gothic style building -HH Wills Physics Laboratory to give is its full title – was designed by Sir George Oatlay, " +
                         "who also designed many University edifices including Wills Memorial Building at the top of Park Street. It was the first part of " +
@@ -112,9 +134,14 @@ class LoadArtworks implements CommandLineRunner {
                         "The building was opened in 1927 and used materials that Harry Wills stipulated should be of “such quality that no repairs are " +
                         "requires for 50 years; hence bronze window frames to avoid rust... the best brick with cement mortar; and Keen’s cement plaster... " +
                         "as it does not flake like lime”.\n",
-                51.458470,
-                -2.602058,
-                ts.getTrailById(1),
+                51.458826,
+                -2.602338,
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(1));
+                        add(ts.getTrailById(2));
+                    }
+                },
                 as.imgToBase64("physics_building.png")));
 
         log.info("Preloading artwork: Vertical Garden");
@@ -124,7 +151,12 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.458858,
                 -2.600813,
-                ts.getTrailById(1),
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(1));
+                        add(ts.getTrailById(2));
+                    }
+                },
                 as.imgToBase64("vertical_garden.png")));
 
         log.info("Preloading artwork: Lizard");
@@ -134,12 +166,95 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.458830,
                 -2.600851,
-                ts.getTrailById(1),
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(2));
+                    }
+                },
                 as.imgToBase64("lizard.png")));
 
+        log.info("Preloading artwork: Goldney Hall");
+        as.add(new Artwork(
+                "Goldney Hall",
+                "N/A",
+                "N/A",
+                51.452625,
+                -2.614940,
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(2));
+                    }
+                },
+                as.imgToBase64("error_image.png")));
 
+        log.info("Preloading artwork: Manor Hall");
+        as.add(new Artwork(
+                "Manor Hall",
+                "N/A",
+                "N/A",
+                51.454477,
+                -2.611941,
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(2));
+                    }
+                },
+                as.imgToBase64("error_image.png")));
 
+        log.info("Preloading artwork: The White Rabbit");
+        as.add(new Artwork(
+                "The White Rabbit",
+                "N/A",
+                "N/A",
+                51.456223,
+                -2.613120,
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(2));
+                    }
+                },
+                as.imgToBase64("error_image.png")));
 
+        log.info("Preloading artwork: Richmond Building");
+        as.add(new Artwork(
+                "Richmond Building",
+                "N/A",
+                "N/A",
+                51.456872,
+                -2.612883,
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(2));
+                    }
+                },
+                as.imgToBase64("error_image.png")));
 
+        log.info("Preloading artwork: Beacon House");
+        as.add(new Artwork(
+                "Beacon House",
+                "N/A",
+                "N/A",
+                51.457907,
+                -2.608119,
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(2));
+                    }
+                },
+                as.imgToBase64("error_image.png")));
+
+        log.info("Preloading artwork: Ivy Gate");
+        as.add(new Artwork(
+                "Ivy Gate",
+                "N/A",
+                "N/A",
+                51.458310,
+                -2.601472,
+                new ArrayList<>() {
+                    {
+                        add(ts.getTrailById(2));
+                    }
+                },
+                as.imgToBase64("error_image.png")));
     }
 }
