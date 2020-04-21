@@ -45,7 +45,7 @@ public class ArtworksService {
                 artwork.setDescription(a.getDescription());
                 artwork.setLatitude(a.getLatitude());
                 artwork.setLongitude(a.getLongitude());
-                artwork.setTrail(a.getTrail());
+                artwork.setTrails(a.getTrails());
                 return r.save(artwork);
             })
             .orElseGet(() -> { // Create

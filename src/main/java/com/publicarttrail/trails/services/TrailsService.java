@@ -4,6 +4,7 @@ import com.publicarttrail.trails.entities.Trail;
 import com.publicarttrail.trails.repositories.TrailsRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +25,11 @@ public class TrailsService {
 
     // Read
     public List<Trail> getTrails() {
-        return r.findAll();
+        List<Trail> trails = r.findAll();
+        for (Trail t : trails) {
+            Collections.sort(t.getArtworks());
+        }
+        return trails;
     }
 
     // Read

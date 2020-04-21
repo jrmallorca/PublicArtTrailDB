@@ -21,5 +21,8 @@ class LoadTrails implements CommandLineRunner {
     public void run(String... args) {
         log.info("Preloading trail: Royal Fort Gardens");
         ts.add(new Trail("Royal Fort Gardens"));
+
+        log.info("Preloading trail: University of Bristol");
+        ts.add(new Trail("University of Bristol"));
     }
 }
