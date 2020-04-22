@@ -1,13 +1,17 @@
 package com.publicarttrail.trails.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data   // Creates all getters, setters, etc. for all attributes
+@RequiredArgsConstructor
 @Entity(name = "Artwork") // Indicate that this is a table
+@Table(name = "artwork")
 public class Artwork {
     @Id                                                 // Indicate that this is the primary key of the table
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment in the table (We don't need to provide a table as it's automatically generated for us)
@@ -29,30 +33,33 @@ public class Artwork {
     @Column(name = "longitude")
     private double longitude;
 
-    @Lob
+    @Lob // Large object
     @Column(name = "image")
     private String image;
 
-    @JsonBackReference // https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
-                       // ^^This is needed to stop the infinite recursion when doing a GET request from Postman
-    @ManyToMany        // Many artworks to many trails
-    @JoinTable(        // Entity (Artwork) is the owner of the relationship
-        name = "Artworks_Trails",
-        joinColumns = { @JoinColumn(name = "artwork_id") },
-        inverseJoinColumns = { @JoinColumn(name = "trail_id") }
+    // https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
+    // ^^This is needed to stop the infinite recursion when doing a GET request from Postman
+    @JsonManagedReference
+    @OneToMany(
+            mappedBy = "artwork",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
-    private List<Trail> trails;
-
-    public Artwork() {}
+    private List<TrailArtwork> trailArtwork = new ArrayList<>();
 
     // Custom constructor when an instance is to be created but we don't have an id
-    public Artwork(String name, String creator, String description, double latitude, double longitude, List<Trail> trails, String image) {
+    public Artwork(String name,
+                   String creator,
+                   String description,
+                   double latitude,
+                   double longitude,
+                   String image) {
+
         this.name = name;
         this.creator = creator;
         this.description = description;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.trails = trails;
         this.image = image;
     }
 }

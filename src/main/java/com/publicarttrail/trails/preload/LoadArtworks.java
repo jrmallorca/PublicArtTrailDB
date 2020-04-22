@@ -2,24 +2,20 @@ package com.publicarttrail.trails.preload;
 
 import com.publicarttrail.trails.entities.Artwork;
 import com.publicarttrail.trails.services.ArtworksService;
-import com.publicarttrail.trails.services.TrailsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-@Component // Allows Spring to find this file
 @Slf4j     // Creates a logger for us
-@Order(2)  // Runs after loading trails
+@Component // Allows Spring to find this file
+@Order(1)  // Runs after loading trails
 class LoadArtworks implements CommandLineRunner {
-    private final TrailsService ts;
     private final ArtworksService as;
 
-    public LoadArtworks(TrailsService ts, ArtworksService as) {
-        this.ts = ts;
+    public LoadArtworks(ArtworksService as) {
         this.as = as;
     }
 
@@ -39,11 +35,6 @@ class LoadArtworks implements CommandLineRunner {
                         "The main gates are permanently open, but there is an ambition to make them operational again.\n\n",
                 51.458417,
                 -2.603188,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(1));
-                    }
-                },
                 as.imgToBase64("error_image.png")));
 
         log.info("Preloading artwork: Follow Me");
@@ -59,11 +50,6 @@ class LoadArtworks implements CommandLineRunner {
                         "gardens-particularly the designs of 18th-century landscape Repton.\n\n",
                 51.457620,
                 -2.602613,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(1));
-                    }
-                },
                 as.imgToBase64("follow_me.png")));
 
         log.info("Preloading artwork: Hollow");
@@ -80,11 +66,6 @@ class LoadArtworks implements CommandLineRunner {
                         "specimens. \n",
                 51.457470,
                 -2.600915,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(1));
-                    }
-                },
                 as.imgToBase64("hollow.png")));
 
         log.info("Preloading artwork: Royal Fort House");
@@ -100,12 +81,6 @@ class LoadArtworks implements CommandLineRunner {
                         "for the reception rooms, but it was Alicia who projected the Paty team of craftsmen into this poetic invention.\n\n",
                 51.457775,
                 -2.601860,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(1));
-                        add(ts.getTrailById(2));
-                    }
-                },
                 as.imgToBase64("royal_fort_house.png")));
 
 
@@ -116,11 +91,6 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.457987,
                 -2.602257,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(1));
-                    }
-                },
                 as.imgToBase64("owl.png")));
 
         log.info("Preloading artwork: H H Wills Physics Laboratory");
@@ -136,12 +106,6 @@ class LoadArtworks implements CommandLineRunner {
                         "as it does not flake like lime”.\n",
                 51.458826,
                 -2.602338,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(1));
-                        add(ts.getTrailById(2));
-                    }
-                },
                 as.imgToBase64("physics_building.png")));
 
         log.info("Preloading artwork: Vertical Garden");
@@ -151,12 +115,6 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.458858,
                 -2.600813,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(1));
-                        add(ts.getTrailById(2));
-                    }
-                },
                 as.imgToBase64("vertical_garden.png")));
 
         log.info("Preloading artwork: Lizard");
@@ -166,11 +124,6 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.458830,
                 -2.600851,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(1));
-                    }
-                },
                 as.imgToBase64("lizard.png")));
 
         log.info("Preloading artwork: Goldney Hall");
@@ -180,11 +133,6 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.452625,
                 -2.614940,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(2));
-                    }
-                },
                 as.imgToBase64("error_image.png")));
 
         log.info("Preloading artwork: Manor Hall");
@@ -194,11 +142,6 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.454477,
                 -2.611941,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(2));
-                    }
-                },
                 as.imgToBase64("error_image.png")));
 
         log.info("Preloading artwork: The White Rabbit");
@@ -208,11 +151,6 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.456223,
                 -2.613120,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(2));
-                    }
-                },
                 as.imgToBase64("error_image.png")));
 
         log.info("Preloading artwork: Richmond Building");
@@ -222,11 +160,6 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.456872,
                 -2.612883,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(2));
-                    }
-                },
                 as.imgToBase64("error_image.png")));
 
         log.info("Preloading artwork: Beacon House");
@@ -236,11 +169,6 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.457907,
                 -2.608119,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(2));
-                    }
-                },
                 as.imgToBase64("error_image.png")));
 
         log.info("Preloading artwork: Ivy Gate");
@@ -250,11 +178,6 @@ class LoadArtworks implements CommandLineRunner {
                 "N/A",
                 51.458310,
                 -2.601472,
-                new ArrayList<>() {
-                    {
-                        add(ts.getTrailById(2));
-                    }
-                },
                 as.imgToBase64("error_image.png")));
     }
 }

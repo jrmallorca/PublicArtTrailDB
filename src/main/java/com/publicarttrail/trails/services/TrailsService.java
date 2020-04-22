@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 // Implementations of the repository interface methods
-// TODO: 13/02/2020 Consider adding a getByName() method
 @Service
 public class TrailsService {
     private final TrailsRepository r; // Repository required to call the CRUD operations
@@ -31,6 +30,12 @@ public class TrailsService {
     public Trail getTrailById(long id) {
         Optional<Trail> t = r.findById(id);
         return t.orElseThrow(() -> new TrailNotFoundException(id));
+    }
+
+    // Read
+    public Trail getTrailByName(String name) {
+        Optional<Trail> t = r.findByName(name);
+        return t.orElseThrow(() -> new TrailNotFoundException(name));
     }
 
     // Update/Create
