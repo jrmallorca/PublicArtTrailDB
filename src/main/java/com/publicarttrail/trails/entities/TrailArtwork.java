@@ -10,7 +10,7 @@ import java.io.Serializable;
 @RequiredArgsConstructor
 @Entity(name = "TrailArtwork")
 @Table(name = "trail_artwork")
-public class TrailArtwork implements Serializable, Comparable<TrailArtwork> {
+public class TrailArtwork implements Serializable {
     @JsonBackReference
     @Id
     @ManyToOne
@@ -29,10 +29,5 @@ public class TrailArtwork implements Serializable, Comparable<TrailArtwork> {
     public TrailArtwork(Artwork artwork, int artworkRank) {
         this.artwork = artwork;
         this.artworkRank = artworkRank;
-    }
-
-    @Override
-    public int compareTo(TrailArtwork ta) {
-        return this.artworkRank - ta.getArtworkRank();
     }
 }

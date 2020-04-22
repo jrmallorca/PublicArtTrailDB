@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 // Implementations of the repository interface methods
-// TODO: 13/02/2020 Consider adding a getByName() method
 @Service
 public class ArtworksService {
     private final ArtworksRepository r; // Repository required to call the CRUD operations
