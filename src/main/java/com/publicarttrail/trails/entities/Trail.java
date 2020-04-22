@@ -2,14 +2,16 @@ package com.publicarttrail.trails.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-@Data   // Creates all getters, setters, etc. for all attributes
-@Entity(name = "Trail") // Indicate that this is a table
+@Data // Creates all getters, setters, etc. for all attributes
+@RequiredArgsConstructor
+@Entity(name = "Trail")
 @Table(name = "trail")
 public class Trail {
     @Id                                                 // Indicate that this is the primary key of the table
@@ -28,33 +30,13 @@ public class Trail {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<TrailArtwork> artworks = new ArrayList<>();
-
-    public Trail() {}
+    private List<TrailArtwork> trailArtworks;
 
     // Custom constructor when an instance is to be created but we don't have an id
-    public Trail(String name) {
+    public Trail(String name, TrailArtwork... trailArtworks) {
         this.name = name;
-    }
 
-    public void addArtwork(Artwork artwork, int artworkRank) {
-        TrailArtwork ta = new TrailArtwork(this, artwork, artworkRank);
-        artworks.add(ta);
-        artwork.getTrails().add(ta);
-    }
-
-    public void removeArtwork(Artwork artwork) {
-        for (Iterator<TrailArtwork> iterator = artworks.iterator();
-             iterator.hasNext(); ) {
-            TrailArtwork ta = iterator.next();
-
-            if (ta.getTrail().equals(this) &&
-                    ta.getArtwork().equals(artwork)) {
-                iterator.remove();
-                ta.getArtwork().getTrails().remove(ta);
-                ta.setTrail(null);
-                ta.setArtwork(null);
-            }
-        }
+        for (TrailArtwork ta : trailArtworks) ta.setTrail(this);
+        this.trailArtworks = Stream.of(trailArtworks).collect(Collectors.toList());
     }
 }

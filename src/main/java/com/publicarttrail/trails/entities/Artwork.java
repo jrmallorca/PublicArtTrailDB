@@ -2,17 +2,14 @@ package com.publicarttrail.trails.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.NaturalId;
-import org.hibernate.annotations.NaturalIdCache;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @Data   // Creates all getters, setters, etc. for all attributes
+@RequiredArgsConstructor
 @Entity(name = "Artwork") // Indicate that this is a table
 @Table(name = "artwork")
 public class Artwork {
@@ -48,38 +45,20 @@ public class Artwork {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<TrailArtwork> trails = new ArrayList<>();
-
-    public Artwork() {}
+    private List<TrailArtwork> trailArtwork = new ArrayList<>();
 
     // Custom constructor when an instance is to be created but we don't have an id
-    public Artwork(String name, String creator, String description, double latitude, double longitude, String image) {
+    public Artwork(String name,
+                   String creator,
+                   String description,
+                   double latitude,
+                   double longitude,
+                   String image) {
         this.name = name;
         this.creator = creator;
         this.description = description;
         this.latitude = latitude;
         this.longitude = longitude;
         this.image = image;
-    }
-
-    public void addTrail(Trail trail, int artworkRank) {
-        TrailArtwork ta = new TrailArtwork(trail, this, artworkRank);
-        trails.add(ta);
-        trail.getArtworks().add(ta);
-    }
-
-    public void removeTrail(Trail trail) {
-        for (Iterator<TrailArtwork> iterator = trails.iterator();
-             iterator.hasNext(); ) {
-            TrailArtwork ta = iterator.next();
-
-            if (ta.getTrail().equals(trail) &&
-                    ta.getArtwork().equals(this)) {
-                iterator.remove();
-                ta.getTrail().getArtworks().remove(ta);
-                ta.setArtwork(null);
-                ta.setTrail(null);
-            }
-        }
     }
 }

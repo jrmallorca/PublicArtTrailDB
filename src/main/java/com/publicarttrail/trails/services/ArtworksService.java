@@ -35,8 +35,15 @@ public class ArtworksService {
         return a.orElseThrow(() -> new ArtworkNotFoundException(id));
     }
 
+    // Read
+    public Artwork getArtworkByName(String name) {
+        Optional<Artwork> a = r.findByName(name);
+        return a.orElseThrow(() -> new ArtworkNotFoundException(name));
+    }
+
     // Update/Create
     // TODO: May need to create methods for specific attributes of artwork (e.g. just editing name)
+    // TODO: 21/04/2020 May need to edit for trailArtworks
     public void replace(Artwork a, long id) {
         r.findById(id)
             .map(artwork -> { // Update
@@ -45,7 +52,6 @@ public class ArtworksService {
                 artwork.setDescription(a.getDescription());
                 artwork.setLatitude(a.getLatitude());
                 artwork.setLongitude(a.getLongitude());
-                artwork.setTrails(a.getTrails());
                 return r.save(artwork);
             })
             .orElseGet(() -> { // Create

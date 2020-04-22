@@ -1,37 +1,32 @@
 package com.publicarttrail.trails.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
+@RequiredArgsConstructor
 @Entity(name = "TrailArtwork")
 @Table(name = "trail_artwork")
-public class TrailArtwork implements Comparable<TrailArtwork> {
-    @EmbeddedId
-    private TrailArtworkID id;
-
+public class TrailArtwork implements Serializable, Comparable<TrailArtwork> {
     @JsonBackReference
+    @Id
     @ManyToOne
-    @MapsId("trailID")
-    @JoinColumn(name = "trail_id", referencedColumnName = "id")
+    @JoinColumn(name = "trail_id")
     private Trail trail;
 
     @JsonBackReference
+    @Id
     @ManyToOne
-    @MapsId("artworkID")
-    @JoinColumn(name = "artwork_id", referencedColumnName = "id")
+    @JoinColumn(name = "artwork_id")
     private Artwork artwork;
 
     @Column(name = "artwork_rank")
     private int artworkRank;
 
-    public TrailArtwork() {}
-
-    public TrailArtwork(Trail trail, Artwork artwork, int artworkRank) {
-        id = new TrailArtworkID(trail.getId(), artwork.getId());
-        this.trail = trail;
+    public TrailArtwork(Artwork artwork, int artworkRank) {
         this.artwork = artwork;
         this.artworkRank = artworkRank;
     }

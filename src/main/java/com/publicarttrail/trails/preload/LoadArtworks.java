@@ -2,36 +2,27 @@ package com.publicarttrail.trails.preload;
 
 import com.publicarttrail.trails.entities.Artwork;
 import com.publicarttrail.trails.services.ArtworksService;
-import com.publicarttrail.trails.services.TrailsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-@Component // Allows Spring to find this file
 @Slf4j     // Creates a logger for us
-@Order(2)  // Runs after loading trails
+@Component // Allows Spring to find this file
+@Order(1)  // Runs after loading trails
 class LoadArtworks implements CommandLineRunner {
-    private final TrailsService ts;
     private final ArtworksService as;
 
-    public LoadArtworks(TrailsService ts, ArtworksService as) {
-        this.ts = ts;
+    public LoadArtworks(ArtworksService as) {
         this.as = as;
     }
 
     @Override
     public void run(String... args) throws IOException {
-        List<Artwork> artworks = new ArrayList<>();
-        int t1 = 1;
-        int t2 = 1;
-
         log.info("Preloading artwork: Tyndall Gates");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Tyndall Gates",
                 "Humphry Repton",
                 "English landscape designer Humphry Repton laid out the main garden in 1800. It is almost impossible to visualize, but in Repton’s " +
@@ -45,11 +36,9 @@ class LoadArtworks implements CommandLineRunner {
                 51.458417,
                 -2.603188,
                 as.imgToBase64("error_image.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(1), t1);
-        t1++;
 
         log.info("Preloading artwork: Follow Me");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Follow Me",
                 "Jeppe Hein",
                 "In 2009 a new public sculpture by internationally acclaimed artist, Jeppe Hein, was unveiled as part of the University’s centenary celebrations. " +
@@ -62,11 +51,9 @@ class LoadArtworks implements CommandLineRunner {
                 51.457620,
                 -2.602613,
                 as.imgToBase64("follow_me.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(1), t1);
-        t1++;
 
         log.info("Preloading artwork: Hollow");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Hollow",
                 "Katie Paterson",
                 "In 2016 a new public artwork called ‘Hollow’, made from tree sample form across the world was installed within Royal Fort Garden. " +
@@ -80,11 +67,9 @@ class LoadArtworks implements CommandLineRunner {
                 51.457470,
                 -2.600915,
                 as.imgToBase64("hollow.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(1), t1);
-        t1++;
 
         log.info("Preloading artwork: Royal Fort House");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Royal Fort House",
                 "Thomas Tyndall",
                 "Royal fort house was built in 1758-62 on the site of a Civil War fortification for Thomas Tyndall, a wealthy Bristol merchant, and his " +
@@ -97,25 +82,19 @@ class LoadArtworks implements CommandLineRunner {
                 51.457775,
                 -2.601860,
                 as.imgToBase64("royal_fort_house.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(1), t1);
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(2), t2);
-        t1++;
-        t2++;
 
 
         log.info("Preloading artwork: Metal Owl");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Metal Owl",
                 "Metalgnu",
                 "N/A",
                 51.457987,
                 -2.602257,
                 as.imgToBase64("owl.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(1), t1);
-        t1++;
 
         log.info("Preloading artwork: H H Wills Physics Laboratory");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "H H Wills Physics Laboratory",
                 "George Oatlay",
                 "This gothic style building -HH Wills Physics Laboratory to give is its full title – was designed by Sir George Oatlay, " +
@@ -128,99 +107,77 @@ class LoadArtworks implements CommandLineRunner {
                 51.458826,
                 -2.602338,
                 as.imgToBase64("physics_building.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(1), t1);
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(2), t2);
-        t1++;
-        t2++;
 
         log.info("Preloading artwork: Vertical Garden");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Vertical Garden",
                 "N/A",
                 "N/A",
                 51.458858,
                 -2.600813,
                 as.imgToBase64("vertical_garden.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(1), t1);
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(2), t2);
-        t1++;
-        t2++;
 
         log.info("Preloading artwork: Lizard");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Lizard",
                 "Metalgnu",
                 "N/A",
                 51.458830,
                 -2.600851,
                 as.imgToBase64("lizard.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(1), t1);
-        t1++;
 
         log.info("Preloading artwork: Goldney Hall");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Goldney Hall",
                 "N/A",
                 "N/A",
                 51.452625,
                 -2.614940,
                 as.imgToBase64("error_image.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(2), t2);
-        t2++;
 
         log.info("Preloading artwork: Manor Hall");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Manor Hall",
                 "N/A",
                 "N/A",
                 51.454477,
                 -2.611941,
                 as.imgToBase64("error_image.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(2), t2);
-        t2++;
 
         log.info("Preloading artwork: The White Rabbit");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "The White Rabbit",
                 "N/A",
                 "N/A",
                 51.456223,
                 -2.613120,
                 as.imgToBase64("error_image.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(2), t2);
-        t2++;
 
         log.info("Preloading artwork: Richmond Building");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Richmond Building",
                 "N/A",
                 "N/A",
                 51.456872,
                 -2.612883,
                 as.imgToBase64("error_image.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(2), t2);
-        t2++;
 
         log.info("Preloading artwork: Beacon House");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Beacon House",
                 "N/A",
                 "N/A",
                 51.457907,
                 -2.608119,
                 as.imgToBase64("error_image.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(2), t2);
-        t2++;
 
         log.info("Preloading artwork: Ivy Gate");
-        artworks.add(new Artwork(
+        as.add(new Artwork(
                 "Ivy Gate",
                 "N/A",
                 "N/A",
                 51.458310,
                 -2.601472,
                 as.imgToBase64("error_image.png")));
-        artworks.get(artworks.size() - 1).addTrail(ts.getTrailById(2), t2);
-        t2++;
     }
 }

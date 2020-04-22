@@ -4,5 +4,9 @@ import com.publicarttrail.trails.entities.Artwork;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
-public interface ArtworksRepository extends JpaRepository<Artwork, Long> {}
+public interface ArtworksRepository extends JpaRepository<Artwork, Long> {
+    Optional<Artwork> findByName(String name);
+}

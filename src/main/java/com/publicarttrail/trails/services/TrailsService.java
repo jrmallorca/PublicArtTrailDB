@@ -4,7 +4,6 @@ import com.publicarttrail.trails.entities.Trail;
 import com.publicarttrail.trails.repositories.TrailsRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,18 +23,21 @@ public class TrailsService {
     }
 
     // Read
+    // TODO: 21/04/2020 May need to see about Comparable
     public List<Trail> getTrails() {
-        List<Trail> trails = r.findAll();
-        for (Trail t : trails) {
-            Collections.sort(t.getArtworks());
-        }
-        return trails;
+        return r.findAll();
     }
 
     // Read
     public Trail getTrailById(long id) {
         Optional<Trail> t = r.findById(id);
         return t.orElseThrow(() -> new TrailNotFoundException(id));
+    }
+
+    // Read
+    public Trail getTrailByName(String name) {
+        Optional<Trail> t = r.findByName(name);
+        return t.orElseThrow(() -> new TrailNotFoundException(name));
     }
 
     // Update/Create
