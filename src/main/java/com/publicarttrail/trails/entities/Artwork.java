@@ -54,6 +54,7 @@ public class Artwork {
                    double latitude,
                    double longitude,
                    String image) {
+
         this.name = name;
         this.creator = creator;
         this.description = description;
