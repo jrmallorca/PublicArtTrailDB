@@ -36,7 +36,10 @@ public class Trail {
     public Trail(String name, TrailArtwork... trailArtworks) {
         this.name = name;
 
-        for (TrailArtwork ta : trailArtworks) ta.setTrail(this);
+        for (TrailArtwork ta : trailArtworks) {
+            ta.setTrail(this);
+            ta.getArtwork().getTrailArtwork().add(ta);
+        }
         this.trailArtworks = Stream.of(trailArtworks).collect(Collectors.toList());
     }
 }
