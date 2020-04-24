@@ -1,7 +1,7 @@
 package com.publicarttrail.trails.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.*;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,22 +11,23 @@ import java.io.Serializable;
 @Entity(name = "TrailArtwork")
 @Table(name = "trail_artwork")
 public class TrailArtwork implements Serializable {
-    @JsonBackReference
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "trail_id")
+    @EmbeddedId
+    private TrailArtworkPK id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("trailID")
     private Trail trail;
 
-    @JsonBackReference
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "artwork_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("artworkID")
     private Artwork artwork;
 
     @Column(name = "artwork_rank")
     private int artworkRank;
 
-    public TrailArtwork(Artwork artwork, int artworkRank) {
+    public TrailArtwork(Trail trail, Artwork artwork, int artworkRank) {
+        id = new TrailArtworkPK(trail.getId(), artwork.getId());
+        this.trail = trail;
         this.artwork = artwork;
         this.artworkRank = artworkRank;
     }

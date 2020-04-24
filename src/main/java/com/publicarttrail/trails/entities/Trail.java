@@ -1,13 +1,11 @@
 package com.publicarttrail.trails.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.Set;
 
 @Data // Creates all getters, setters, etc. for all attributes
 @RequiredArgsConstructor
@@ -22,24 +20,15 @@ public class Trail {
     @Column(name = "name")
     private String name;
 
-    // https://stackoverflow.com/questions/3325387/infinite-recursion-with-jackson-json-and-hibernate-jpa-issue
-    // ^^This is needed to stop the infinite recursion when doing a GET request from Postman
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(
             mappedBy = "trail",
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.MERGE,
             orphanRemoval = true
     )
-    private List<TrailArtwork> trailArtworks;
+    private Set<TrailArtwork> trailArtworks;
 
-    // Custom constructor when an instance is to be created but we don't have an id
-    public Trail(String name, TrailArtwork... trailArtworks) {
+    public Trail(String name) {
         this.name = name;
-
-        for (TrailArtwork ta : trailArtworks) {
-            ta.setTrail(this);
-            ta.getArtwork().getTrailArtwork().add(ta);
-        }
-        this.trailArtworks = Stream.of(trailArtworks).collect(Collectors.toList());
     }
 }
