@@ -2,7 +2,6 @@ package com.publicarttrail.trails.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -11,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Data   // Creates all getters, setters, etc. for all attributes
+@Data // Creates all getters, setters, etc. for all attributes
 @RequiredArgsConstructor
 @Entity(name = "Artwork") // Indicate that this is a table
 @Table(name = "artwork")
 public class Artwork {
-    @Id                                                 // Indicate that this is the primary key of the table
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment in the table (We don't need to provide a table as it's automatically generated for us)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;                                    // Primary key
+    private int id;
 
     @Column(name = "name")
     private String name;

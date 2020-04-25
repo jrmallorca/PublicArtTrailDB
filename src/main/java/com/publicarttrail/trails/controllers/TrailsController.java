@@ -22,7 +22,7 @@ public class TrailsController {
     }
 
     @GetMapping("/{id}")
-    public Trail getById(@PathVariable long id) {
+    public Trail getById(@PathVariable int id) {
         return s.getTrailById(id);
     }
 
@@ -32,12 +32,12 @@ public class TrailsController {
     }
 
     @PutMapping("/{id}")
-    public void replaceTrail(@RequestBody Trail t, @PathVariable long id) {
+    public void replaceTrail(@RequestBody Trail t, @PathVariable int id) {
         s.replace(t, id);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable long id) {
+    public void delete(@PathVariable int id) {
         s.delete(id);
     }
 }

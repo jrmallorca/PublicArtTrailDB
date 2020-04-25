@@ -16,8 +16,8 @@ import java.io.Serializable;
 @Embeddable
 public class TrailArtworkPK implements Serializable {
     @Column(name = "trail_id")
-    private long trailID;
+    private int trailID;
 
     @Column(name = "artwork_id")
-    private long artworkID;
+    private int artworkID;
 }

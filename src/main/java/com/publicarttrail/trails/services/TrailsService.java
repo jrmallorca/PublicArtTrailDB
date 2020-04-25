@@ -27,7 +27,7 @@ public class TrailsService {
     }
 
     // Read
-    public Trail getTrailById(long id) {
+    public Trail getTrailById(int id) {
         Optional<Trail> t = r.findById(id);
         return t.orElseThrow(() -> new TrailNotFoundException(id));
     }
@@ -40,7 +40,7 @@ public class TrailsService {
 
     // Update/Create
     // TODO: May need to create methods for specific attributes of trail (e.g. just editing name)
-    public void replace(Trail t, long id) {
+    public void replace(Trail t, int id) {
         r.findById(id)
             .map(trail -> {    // Update
                 trail.setName(t.getName());
@@ -53,7 +53,7 @@ public class TrailsService {
     }
 
     // Delete
-    public void delete(long id) {
+    public void delete(int id) {
         r.deleteById(id);
     }
 }

@@ -8,6 +8,6 @@ import java.util.Optional;
 
 // Get the CRUD operations and implement them in the Service layer
 @Repository
-public interface TrailsRepository extends JpaRepository<Trail, Long> {
+public interface TrailsRepository extends JpaRepository<Trail, Integer> {
     Optional<Trail> findByName(String name);
 }

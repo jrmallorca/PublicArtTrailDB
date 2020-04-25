@@ -13,11 +13,9 @@ import org.springframework.stereotype.Component;
 @Order(2)  // Runs before loading artworks
 class LoadTrails implements CommandLineRunner {
     private final TrailsService ts;
-    private final ArtworksService as;
 
-    public LoadTrails(TrailsService ts, ArtworksService as) {
+    public LoadTrails(TrailsService ts) {
         this.ts = ts;
-        this.as = as;
     }
 
     @Override

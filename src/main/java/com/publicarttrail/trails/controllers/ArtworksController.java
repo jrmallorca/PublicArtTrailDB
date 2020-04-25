@@ -22,7 +22,7 @@ public class ArtworksController {
     }
 
     @GetMapping("/{id}")
-    public Artwork getById(@PathVariable long id) {
+    public Artwork getById(@PathVariable int id) {
         return s.getArtworkById(id);
     }
 
@@ -32,12 +32,12 @@ public class ArtworksController {
     }
 
     @PutMapping("/{id}")
-    public void replaceArtwork(@RequestBody Artwork a, @PathVariable long id) {
+    public void replaceArtwork(@RequestBody Artwork a, @PathVariable int id) {
         s.replace(a, id);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable long id) {
+    public void delete(@PathVariable int id) {
         s.delete(id);
     }
 }

@@ -29,7 +29,7 @@ public class ArtworksService {
     }
 
     // Read
-    public Artwork getArtworkById(long id) {
+    public Artwork getArtworkById(int id) {
         Optional<Artwork> a = r.findById(id);
         return a.orElseThrow(() -> new ArtworkNotFoundException(id));
     }
@@ -43,7 +43,7 @@ public class ArtworksService {
     // Update/Create
     // TODO: May need to create methods for specific attributes of artwork (e.g. just editing name)
     // TODO: 21/04/2020 May need to edit for trailArtworks
-    public void replace(Artwork a, long id) {
+    public void replace(Artwork a, int id) {
         r.findById(id)
             .map(artwork -> { // Update
                 artwork.setName(a.getName());
@@ -67,7 +67,7 @@ public class ArtworksService {
     }
 
     // Delete
-    public void delete(long id) {
+    public void delete(int id) {
         r.deleteById(id);
     }
 }
