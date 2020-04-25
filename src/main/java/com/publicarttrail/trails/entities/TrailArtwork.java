@@ -1,6 +1,7 @@
 package com.publicarttrail.trails.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -20,7 +21,7 @@ public class TrailArtwork implements Serializable {
     @MapsId("trailID")
     private Trail trail;
 
-    @JsonBackReference
+    @JsonManagedReference
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("artworkID")
     private Artwork artwork;

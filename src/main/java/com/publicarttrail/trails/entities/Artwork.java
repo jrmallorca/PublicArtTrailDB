@@ -1,5 +1,7 @@
 package com.publicarttrail.trails.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +10,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Data   // Creates all getters, setters, etc. for all attributes
 @RequiredArgsConstructor
 @Entity(name = "Artwork") // Indicate that this is a table
@@ -37,7 +40,7 @@ public class Artwork {
     @Column(name = "image")
     private String image;
 
-    @JsonManagedReference
+    @JsonBackReference
     @OneToMany(
             mappedBy = "artwork",
             cascade = CascadeType.ALL,
