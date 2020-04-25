@@ -119,7 +119,7 @@ public class LoadTrailArtwork implements CommandLineRunner {
                 as.getArtworkByName("Ivy Gate"),
                 counter));
         counter++;
-        
+
         trailArtworks.add(new TrailArtwork(ts.getTrailByName("University of Bristol"),
                 as.getArtworkByName("Vertical Garden"),
                 counter));

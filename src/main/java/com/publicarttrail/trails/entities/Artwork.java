@@ -1,6 +1,5 @@
 package com.publicarttrail.trails.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -37,7 +36,6 @@ public class Artwork {
     @Column(name = "image")
     private String image;
 
-    @JsonIgnore
     @OneToMany(
             mappedBy = "artwork",
             cascade = CascadeType.MERGE,
