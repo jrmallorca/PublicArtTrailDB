@@ -1,11 +1,12 @@
 package com.publicarttrail.trails.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data   // Creates all getters, setters, etc. for all attributes
 @RequiredArgsConstructor
@@ -36,12 +37,13 @@ public class Artwork {
     @Column(name = "image")
     private String image;
 
+    @JsonManagedReference
     @OneToMany(
             mappedBy = "artwork",
-            cascade = CascadeType.MERGE,
+            cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Set<TrailArtwork> trailArtwork = new HashSet<>();
+    private List<TrailArtwork> trailArtwork = new ArrayList<>();
 
     // Custom constructor when an instance is to be created but we don't have an id
     public Artwork(String name,
