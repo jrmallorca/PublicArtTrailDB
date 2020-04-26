@@ -75,11 +75,7 @@ public class LoadTrailArtwork implements CommandLineRunner {
                 counter));
 
         counter = 1; // New trail
-        trailArtworks.add(new TrailArtwork(ts.getTrailByName("University of Bristol"),
-                as.getArtworkByName("Vertical Garden"),
-                counter));
-        counter++;
-
+        
         trailArtworks.add(new TrailArtwork(ts.getTrailByName("University of Bristol"),
                 as.getArtworkByName("Goldney Hall"),
                 counter));
