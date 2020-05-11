@@ -41,7 +41,6 @@ public class ArtworksService {
     }
 
     // Update/Create
-    // TODO: May need to create methods for specific attributes of artwork (e.g. just editing name)
     // TODO: 21/04/2020 May need to edit for trailArtworks
     public void replace(Artwork a, int id) {
         r.findById(id)
@@ -51,6 +50,8 @@ public class ArtworksService {
                 artwork.setDescription(a.getDescription());
                 artwork.setLatitude(a.getLatitude());
                 artwork.setLongitude(a.getLongitude());
+                artwork.setImage(a.getImage());
+                artwork.setTrailArtwork(a.getTrailArtwork());
                 return r.save(artwork);
             })
             .orElseGet(() -> { // Create

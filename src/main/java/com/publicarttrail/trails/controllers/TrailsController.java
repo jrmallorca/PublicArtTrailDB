@@ -26,6 +26,11 @@ public class TrailsController {
         return s.getTrailById(id);
     }
 
+    @GetMapping("/{name}")
+    public Trail getByName(@PathVariable String name) {
+        return s.getTrailByName(name);
+    }
+
     @PostMapping
     public void postTrail(@RequestBody Trail t) {
         s.add(t);

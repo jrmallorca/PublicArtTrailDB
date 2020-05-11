@@ -26,6 +26,11 @@ public class ArtworksController {
         return s.getArtworkById(id);
     }
 
+    @GetMapping("/{name}")
+    public Artwork getByName(@PathVariable String name) {
+        return s.getArtworkByName(name);
+    }
+
     @PostMapping
     public void postArtwork(@RequestBody Artwork a) {
         s.add(a);

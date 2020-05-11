@@ -39,11 +39,11 @@ public class TrailsService {
     }
 
     // Update/Create
-    // TODO: May need to create methods for specific attributes of trail (e.g. just editing name)
     public void replace(Trail t, int id) {
         r.findById(id)
             .map(trail -> {    // Update
                 trail.setName(t.getName());
+                trail.setTrailArtworks(t.getTrailArtworks());
                 return r.save(trail);
             })
             .orElseGet(() -> { // Create
