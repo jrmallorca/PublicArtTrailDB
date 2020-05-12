@@ -21,13 +21,13 @@ public class TrailsController {
         return s.getTrails();
     }
 
-    @GetMapping("/{id}")
-    public Trail getById(@PathVariable int id) {
+    @GetMapping()
+    public Trail getById(@RequestParam int id) {
         return s.getTrailById(id);
     }
 
-    @GetMapping("/{name}")
-    public Trail getByName(@PathVariable String name) {
+    @GetMapping()
+    public Trail getByName(@RequestParam String name) {
         return s.getTrailByName(name);
     }
 
@@ -36,13 +36,13 @@ public class TrailsController {
         s.add(t);
     }
 
-    @PutMapping("/{id}")
-    public void replaceTrail(@RequestBody Trail t, @PathVariable int id) {
+    @PutMapping()
+    public void replaceTrail(@RequestParam int id, @RequestBody Trail t) {
         s.replace(t, id);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable int id) {
+    @DeleteMapping()
+    public void delete(@RequestParam int id) {
         s.delete(id);
     }
 }

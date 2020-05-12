@@ -21,13 +21,13 @@ public class ArtworksController {
         return s.getArtworks();
     }
 
-    @GetMapping("/{id}")
-    public Artwork getById(@PathVariable int id) {
+    @GetMapping()
+    public Artwork getById(@RequestParam int id) {
         return s.getArtworkById(id);
     }
 
-    @GetMapping("/{name}")
-    public Artwork getByName(@PathVariable String name) {
+    @GetMapping()
+    public Artwork getByName(@RequestParam String name) {
         return s.getArtworkByName(name);
     }
 
@@ -36,13 +36,13 @@ public class ArtworksController {
         s.add(a);
     }
 
-    @PutMapping("/{id}")
-    public void replaceArtwork(@RequestBody Artwork a, @PathVariable int id) {
+    @PutMapping()
+    public void replaceArtwork(@RequestParam int id, @RequestBody Artwork a) {
         s.replace(a, id);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable int id) {
+    @DeleteMapping()
+    public void delete(@RequestParam int id) {
         s.delete(id);
     }
 }
